@@ -15,5 +15,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp     # nebo sftp
           port: 21          # s SFTP dej 22
-          local-dir: /
+          local-dir: /src/
           server-dir: /subdoms/dev/test/
