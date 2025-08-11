@@ -1,0 +1,19 @@
+name: Deploy via FTP
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp     # nebo sftp
+          port: 21          # s SFTP dej 22
+          local-dir: .
+          server-dir: /subdoms/dev/test
